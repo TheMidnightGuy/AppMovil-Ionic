@@ -1,0 +1,80 @@
+
+
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="end">
+      <ion-button fill="solid" [routerLink]="['/home']" color="danger">Cerrar sesion ❌</ion-button>
+    </ion-buttons>
+    <ion-buttons slot="start">
+      <ion-back-button>Volver</ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      SkeletonAPP
+    </ion-title>
+    <ion-progress-bar type="indeterminate" color="success"></ion-progress-bar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" >
+
+<div class="fondo-cuenta">
+  <div id="titulo">
+    <h1><b>Bienvenido profesor!</b></h1>
+    <h4>Usuario :  {{user.usuario}}</h4>
+  </div>
+
+
+  <ion-avatar id="avatar" #avatar>
+    <img alt="Avatar" src="https://cdn-icons-png.flaticon.com/512/2883/2883841.png" />
+  </ion-avatar>
+
+
+
+  <div class="informacion">
+
+    
+    <h2>Detalle curso</h2>
+
+    <ion-list-header>
+      Lista de cursos
+    </ion-list-header>
+
+    <br>
+
+    <ion-list > 
+
+      <ion-item >
+        <ion-label > 005-D</ion-label>     <ion-button color="success" [routerLink]="['/curso']"> Asistencia</ion-button>
+      </ion-item>
+      <ion-item >
+        <ion-label >006-D</ion-label>      <ion-button color="success" [routerLink]="['/curso']"> Asistencia</ion-button>
+      </ion-item>
+      <ion-item >
+        <ion-label >007-D </ion-label>     <ion-button color="success" [routerLink]="['/curso']"> Asistencia</ion-button>
+      </ion-item>
+
+    </ion-list>
+
+
+
+
+
+
+
+
+  </div>
+
+  
+ 
+
+
+  <ion-footer color>
+    <ion-toolbar color="primary">
+      <ion-title>Developed by Benja</ion-title>
+    </ion-toolbar>
+  </ion-footer>
+
+</div>
+</ion-content> 
+
+

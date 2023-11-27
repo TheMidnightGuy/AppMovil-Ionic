@@ -1,0 +1,96 @@
+
+
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="end">
+      <ion-button fill="solid" [routerLink]="['/home']" color="danger">Cerrar sesion ❌</ion-button>
+    </ion-buttons>
+    <ion-title>
+      SkeletonAPP
+    </ion-title>
+    <ion-progress-bar type="indeterminate" color="success"></ion-progress-bar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" >
+
+<div class="fondo-cuenta">
+  <div id="titulo">
+    <h1><b>Bienvenido!</b></h1>
+    <h4>Usuario :  {{user.usuario}}</h4>
+  </div>
+
+
+  <ion-avatar id="avatar" #avatar>
+    <img alt="Avatar" src="https://i.gifer.com/origin/ff/ff88888459f390b30438e162769be571_w200.gif" />
+  </ion-avatar>
+
+
+
+  <div class="informacion">
+
+    
+    <h2>Informacion adicional</h2>
+
+    <ion-item color="primary">
+      <ion-input color="primary" label="Nombre" type="text"  fill="solid" placeholder="Ingrese su nombre" value=""></ion-input>
+    </ion-item>
+
+    <ion-item color="primary">
+      <ion-input color="primary" label="Apellido" type="text"  fill="solid" placeholder="Ingrese su apellido" value=""></ion-input>
+    </ion-item>
+
+    <ion-list color="primary">
+      <ion-item color="primary">
+        <ion-select aria-label="Fruit" interface="popover" placeholder="Nivel Educacional" >
+          <ion-select-option value="Basica" >Eduacion Basica</ion-select-option>
+          <ion-select-option value="Media">Educacion Media</ion-select-option>
+          <ion-select-option value="Superior">Eduacion Superior</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+
+
+    <ion-item color="primary">
+      <ion-input color="primary" label="Fecha Nacimiento" type="date"  fill="solid" placeholder="Ingrese fecha" ></ion-input>
+    </ion-item>
+
+    <br>
+
+    <ion-button (click)="presentAlert()">
+      Mostrar
+    </ion-button>
+
+    <ion-button color="danger">
+      Limpiar
+    </ion-button>
+
+    <hr>
+
+    <div class="titulo">
+      <h1><b>Tipo de usuario</b></h1>
+    </div>
+
+  
+
+    <ion-button expand="block" color="primary" [routerLink]="['/alumno']">
+      alumno
+    </ion-button>
+
+    <ion-button expand="block" color="primary" [routerLink]="['/profesor']">
+      profesor
+    </ion-button>
+
+  </div>
+
+ 
+
+
+  <ion-footer color>
+    <ion-toolbar color="primary">
+      <ion-title>Developed by Benja</ion-title>
+    </ion-toolbar>
+  </ion-footer>
+
+</div>
+</ion-content> 

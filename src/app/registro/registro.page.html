@@ -1,0 +1,61 @@
+
+
+  <ion-header >
+    <ion-toolbar color="primary">
+      <ion-buttons slot="start">
+        <ion-back-button>Volver</ion-back-button>
+      </ion-buttons>
+      <ion-title>
+        Recuperar contraseña
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+ 
+
+  <ion-content [fullscreen]="true">
+
+    <div class="fondo-cuenta">
+
+
+
+      <br>
+
+
+      <div id="container">
+        
+        
+        
+        <ion-item>
+          <ion-input [(ngModel)]="user.usuario" label="Usuario" label-placement="floating" fill="solid" placeholder="Ingrese su nombre de usuario" ></ion-input>
+        </ion-item>
+        <br />
+        
+        <ion-item>
+          <ion-input [(ngModel)]="user.contrasena" type="password" label="Nueva contraseña" label-placement="floating" fill="solid" placeholder="Ingrese nueva contraseña" ></ion-input>
+        </ion-item>
+
+        <br>
+
+
+
+        <ion-button (click)="enviarInformacion()">
+          Restablecer
+        </ion-button>    
+
+      
+
+
+        <hr>
+
+        <p>¿Ya tienes una cuenta? <a [routerLink]="['/login']">Inicia sesion</a></p>
+
+
+        <br>
+
+        <h2 color="red">{{mensaje}}</h2>
+      </div>
+    </div>
+  </ion-content>
+
+

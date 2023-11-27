@@ -1,0 +1,48 @@
+
+
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title>
+      SkeletonAPP
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <div class="fondo-cuenta">
+    <div id="titulo" color="white">
+      <h1><b>Bienvenido!</b></h1>
+      <h3>Conéctate, aprende, avanza! ☄️</h3>
+    </div>
+
+    <ion-card>
+      <img alt="imagen-inicio" src="https://i.gifer.com/7IjS.gif" />
+
+    
+
+    </ion-card>
+
+  
+    <div id="container">
+
+
+      <br>
+      <ion-button expand="block" [routerLink]="['/login']">
+        Iniciar Sesion
+      </ion-button >
+
+      <br>
+
+      <ion-button expand="block" color="secondary" [routerLink]="['/registro']">
+        Recuperar contraseña
+      </ion-button>
+
+      <br>
+
+
+
+    </div>
+  </div>
+</ion-content> 
+

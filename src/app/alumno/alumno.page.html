@@ -1,0 +1,92 @@
+
+
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="end">
+      <ion-button fill="solid" [routerLink]="['/home']" color="danger">Cerrar sesion ❌</ion-button>
+    </ion-buttons>
+    <ion-buttons slot="start">
+      <ion-back-button>Volver</ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      SkeletonAPP
+    </ion-title>
+    <ion-progress-bar type="indeterminate" color="success"></ion-progress-bar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" >
+
+<div class="fondo-cuenta">
+  <div id="titulo">
+    <h1><b>Bienvenido alumno!</b></h1>
+    <h4>Usuario :  {{user.usuario}}</h4>
+  </div>
+
+
+  <ion-avatar id="avatar" #avatar>
+    <img alt="Avatar" src="https://cdn.icon-icons.com/icons2/1465/PNG/512/130manstudent2_100617.png" />
+  </ion-avatar>
+
+
+
+  <div class="informacion">
+
+    
+    <h2>Informacion adicional</h2>
+
+    <ion-item color="primary">
+      <ion-input color="primary" label="Nombre" type="text"  fill="solid" placeholder="Ingrese su nombre" value=""></ion-input>
+    </ion-item>
+
+    <ion-item color="primary">
+      <ion-input color="primary" label="  RUT" type="text"  fill="solid" placeholder="Ingrese su rut" value=""></ion-input>
+    </ion-item>
+
+
+    <ion-list color="primary">
+      <ion-item color="primary">
+        <ion-select aria-label="Fruit" interface="popover" placeholder="Seccion" >
+          <ion-select-option value="section1" >005-D</ion-select-option>
+          <ion-select-option value="section2">006-D</ion-select-option>
+          <ion-select-option value="section3">007-D</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+
+
+    <ion-item color="primary">
+      <ion-input color="primary" label="Fecha de clase" type="date"  fill="solid" placeholder="Ingrese fecha" ></ion-input>
+    </ion-item>
+
+    <br>
+
+    <ion-button (click)="presentAlert()">
+      Registrar asistencia
+    </ion-button>
+
+    <hr>
+
+
+    <!-- Boton para escanear codigo-->
+    <ion-button color="tertiary">
+      Registrar asistencia con Codigo QR
+    </ion-button>
+    
+    
+
+  </div>
+
+  
+ 
+
+
+  <ion-footer color>
+    <ion-toolbar color="primary">
+      <ion-title>Developed by Benja</ion-title>
+    </ion-toolbar>
+  </ion-footer>
+
+</div>
+</ion-content> 
+

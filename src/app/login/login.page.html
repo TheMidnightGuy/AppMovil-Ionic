@@ -1,0 +1,72 @@
+
+
+  <ion-header>
+    <ion-toolbar color="primary">
+      <ion-buttons slot="start">
+        <ion-back-button>Volver</ion-back-button>
+      </ion-buttons>
+      <ion-title>
+        Log In
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+ 
+
+  <ion-content [fullscreen]="true">
+
+    <div class="fondo-cuenta">
+      <div id="titulo">
+        <h2>Ingresa tus datos </h2>
+      </div>
+
+
+      <div id="container" >
+        
+        <ion-item>
+          <ion-input [(ngModel)]="user.usuario" label="Usuario" label-placement="floating" fill="solid" placeholder="Ingrese su nombre de usuario" ></ion-input>
+        </ion-item>
+        <br />
+        
+        <ion-item>
+          <ion-input [(ngModel)]="user.contrasena" label="Contraseña" type="password" value="password" label-placement="floating" fill="solid" placeholder="Ingrese su contraseña" ></ion-input>
+        </ion-item>
+
+
+
+
+        <br>
+        <ion-button (click)="validarLogin()" >
+          Ingresar
+        </ion-button>
+
+        <hr>
+        
+        <p>¿Olvidaste tu contraseña? <a [routerLink]="['/registro']">Pincha aqui</a></p>
+ 
+
+        <br>
+
+        <h2 color="red">{{mensaje}}</h2>
+        
+
+
+      </div>
+    </div>
+
+    
+  </ion-content> 
+
+    <!--
+    <ion-item *ngIf="currentData">
+      <ion-avatar slot="start">
+        <img src="{{currentData.img}}">
+      </ion-avatar>
+      <ion-label>
+        <h2>{{currentData.name}}</h2>
+        <h3>{{currentData.mesg}}</h3>
+        <p>{{currentData.description}}</p>
+      </ion-label>
+    </ion-item>
+    -->
+
