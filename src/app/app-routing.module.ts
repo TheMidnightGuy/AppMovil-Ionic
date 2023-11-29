@@ -24,25 +24,29 @@ const routes: Routes = [
     path: 'registro',
     loadChildren: () => import('./registro/registro.module').then( m => m.RegistroPageModule)
   },
+  /*
   {
     path: 'cuenta',
     loadChildren: () => import('./cuenta/cuenta.module').then( m => m.CuentaPageModule),
 
   },
+  */
   {
     path: 'alumno',
     loadChildren: () => import('./alumno/alumno.module').then( m => m.AlumnoPageModule),
-    //canActivate: [AuthGuard]  // Aplica el guard y me redirige a Login
+    canActivate: [AuthGuard]  // Aplica el guard y me redirige a Login
 
   },
   {
     path: 'profesor',
     loadChildren: () => import('./profesor/profesor.module').then( m => m.ProfesorPageModule),
+    canActivate: [AuthGuard]  // Aplica el guard y me redirige a Login
 
   },
   {
     path: 'curso',
-    loadChildren: () => import('./curso/curso.module').then( m => m.CursoPageModule)
+    loadChildren: () => import('./curso/curso.module').then( m => m.CursoPageModule),
+    canActivate: [AuthGuard]  // Aplica el guard y me redirige a Login
   },
   {
     path: '**',

@@ -4,8 +4,8 @@ import type { Animation } from '@ionic/angular';
 import { AnimationController } from '@ionic/angular';
 import { AlertController, AlertButton } from '@ionic/angular';
 
-import { BarcodeScanner } from '@capacitor-community/barcode-scanner';
-
+import { BarcodeScanner} from '@capacitor-community/barcode-scanner';
+import { async } from '@angular/core/testing';
 
 @Component({
   selector: 'app-alumno',
@@ -23,27 +23,47 @@ export class AlumnoPage implements OnInit {
 
   constructor(private router:Router, private activatedRouter: ActivatedRoute,private animationCtrl:AnimationController, private alertController: AlertController ) {}
 
-  /*
-  //Iniciar escaneo codigo QR
-  startScan(){
-    const startScan = async () => {
-      // Check camera permission
-      // This is just a simple example, check out the better checks below
-      await BarcodeScanner.checkPermission({ force: true });
-    
-      // make background of WebView transparent
-      // note: if you are using ionic this might not be enough, check below
-      BarcodeScanner.hideBackground();
-    
-      const result = await BarcodeScanner.startScan(); // start scanning and wait for a result
-    
-      // if the result has content
-      if (result.hasContent) {
-        console.log(result.content); // log the raw scanned content
-      }
-  }
-  */
+
+  //Preparar escaneo - codigo QR
+  async prepare () {
+    BarcodeScanner.prepare();
+  };
   
+  //Iniciar escaneo - codigo QR
+  async startScan () {
+    BarcodeScanner.hideBackground();
+    const result = await BarcodeScanner.startScan();
+    if (result.hasContent) {
+      console.log(result.content);
+
+      this.presentAlert(); //Si se escaneo correctamente muestra una alerta de confirmacion de asistencia
+    }
+  };
+
+  //Detener escaneo - codigo QR
+  async stopScan () {
+    BarcodeScanner.showBackground();
+    BarcodeScanner.stopScan();
+  };
+
+  //Preguntar por escaneo - codigo QR
+  async askUser () {
+    this.prepare();
+
+    const c = confirm('Quieres escanear un codigo QR?');
+
+    if (c) {
+      this.startScan();
+    } else {
+      this.stopScan();
+    }
+  };
+  
+
+
+
+
+  //Alerta de alumno presente
   async presentAlert() {
     const alert = await this.alertController.create({
       header: 'Asistencia',

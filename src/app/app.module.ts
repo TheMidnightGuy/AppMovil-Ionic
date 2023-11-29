@@ -8,8 +8,11 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
 import {HttpClientModule} from '@angular/common/http'
+import {ConsumoAPIService} from '../app/services/consumo-api.service';
+
 
 import { QRCodeModule } from 'angularx-qrcode';
+
 
 //import { IonicStorageModule } from '@ionic/storage-angular';
 
@@ -17,7 +20,7 @@ import { QRCodeModule } from 'angularx-qrcode';
 @NgModule({
   declarations: [AppComponent],
   imports: [ QRCodeModule, HttpClientModule,BrowserModule, IonicModule.forRoot(), AppRoutingModule],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy,  }, ConsumoAPIService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

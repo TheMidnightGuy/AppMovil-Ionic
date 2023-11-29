@@ -14,7 +14,7 @@ import { AuthGuard } from '../guard/auth.guard';
 export class LoginPage implements OnInit {
 
   private animation!:Animation;
-  constructor(private router: Router,private animationCtrl:AnimationController) { }
+  constructor(private router: Router,private animationCtrl:AnimationController,private auth:AuthGuard) { }
   public mensaje = ""
 
 
@@ -66,11 +66,13 @@ export class LoginPage implements OnInit {
       let navigationExtras: NavigationExtras = {
         state: { user: this.alumno }
       };
+      this.auth.setAuthenticationStatus(true);
       this.router.navigate(['/alumno'], navigationExtras);
     } else if (usuarioIngresado === this.profesor.usuario.toLowerCase()) {
       let navigationExtras: NavigationExtras = {
         state: { user: this.profesor }
       };
+      this.auth.setAuthenticationStatus(true);
       this.router.navigate(['/profesor'], navigationExtras);
     } else {
       this.mensaje = "Datos no validos, intente denuevo";

@@ -24,4 +24,9 @@ export class ConsumoAPIService {
       retry(3)
     )
   }
+
+  obtenerDatos (){
+    return this.http.get('https://jsonplaceholder.typicode.com/users');
+  }
+
 }
