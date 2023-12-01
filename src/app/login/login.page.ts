@@ -5,6 +5,8 @@ import { AnimationController } from '@ionic/angular';
 import { AuthGuard } from '../guard/auth.guard';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ConsumoAPIService } from '../services/consumo-api.service';
+import { User } from 'firebase/auth';
+import Alumno from '../interfaces/alumno';
 
 
 
@@ -90,6 +92,7 @@ export class LoginPage implements OnInit {
   ngOnInit(): void {
   }
 
+
   onSubmit() {
     this.userService.login(this.formLogin.value)
     .then(response => {
@@ -101,5 +104,13 @@ export class LoginPage implements OnInit {
       this.mensaje = "Datos no validos, intente denuevo";
     });
   }
+
+
+
+
+
+
+  
+
 
 }

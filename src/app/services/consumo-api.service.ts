@@ -57,12 +57,12 @@ export class ConsumoAPIService {
     return collectionData(query(ref, collectionQuery))
   }
 
-  //obtener alumnos de base de datos
+  //obtener alumnos de base de datos (Pagina: Cursos)
   getAlumno(): Observable<Alumno[]> {
     const alumnoRef = collection(this.firestore, 'alumnos');
     return collectionData(alumnoRef, {idField: 'id'}) as Observable<Alumno[]>
   }
 
 
-  
+  //añadir alumnos a la base de datos - *Pendiente* (Pagina: Alumno)
 }
