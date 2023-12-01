@@ -1,0 +1,65 @@
+
+
+  <ion-header >
+    <ion-toolbar color="primary">
+      <ion-buttons slot="start">
+        <ion-back-button>Volver</ion-back-button>
+      </ion-buttons>
+      <ion-title>
+        Registrar usuario
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+ 
+
+  <ion-content [fullscreen]="true">
+
+    <div class="fondo-cuenta">
+
+
+
+      <br>
+      
+
+      <div id="container">
+        
+        <!-- Registro de usuarios -->
+        <form [formGroup]="formReg" (ngSubmit)="onSubmit()">
+          <ion-item>
+              <label class="form-label">Email</label>
+              <input type="text" class="form-control" formControlName="email">
+          </ion-item>
+          <br>
+          <ion-item>
+              <label class="form-label">Password</label>
+              <input type="password" class="form-control" formControlName="password">
+          </ion-item>
+          <input type="submit" value="Enviar">
+        </form>
+
+        <br>
+
+
+        <!-- Boton de registro -->
+        <ion-button (click)="enviarInformacion()">
+          Registrarse
+        </ion-button>    
+
+      
+
+
+        <hr>
+
+        <!-- Te redirige a la pagina Registro-->
+        <p>¿Ya tienes una cuenta? <a [routerLink]="['/login']">Inicia sesion</a></p>
+
+
+        <br>
+
+        <h2 color="red">{{mensaje}}</h2>
+      </div>
+    </div>
+  </ion-content>
+
+

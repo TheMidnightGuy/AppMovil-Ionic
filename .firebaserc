@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "appmovil-ionic": {
+      "hosting": {
+        "app": [
+          "appmovil-ionic"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "appmovil-ionic"
+  }
+}

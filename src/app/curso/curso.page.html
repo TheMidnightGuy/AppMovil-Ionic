@@ -1,0 +1,144 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="end">
+      <ion-button fill="solid" (click)="onClick()" color="danger">Cerrar sesion ❌</ion-button>
+    </ion-buttons>
+    <ion-buttons slot="start">
+      <ion-back-button>Volver</ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      SkeletonAPP
+    </ion-title>
+    <ion-progress-bar type="indeterminate" color="success"></ion-progress-bar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" >
+
+<div class="fondo-cuenta">
+
+
+
+
+
+
+
+  <div class="informacion">
+
+    
+    <h2>Detalle curso</h2>
+
+    <ion-list-header>
+      Alumnos del Curso: 005-D
+    </ion-list-header>
+
+    <br>
+    <!---->
+
+    <!-- Lista de alumnos con Firebase -->
+    
+
+        <!-- 
+      
+    <ion-list > 
+
+      <ion-item >
+        <ion-label >Benjamin Perez </ion-label> <ion-label color="success">| Presente</ion-label>
+      </ion-item>
+      <ion-item >
+        <ion-label >Luis Rojas </ion-label> <ion-label color="danger">| Ausente</ion-label>
+      </ion-item>
+      <ion-item >
+        <ion-label >Alvaro Sevilla </ion-label> <ion-label color="danger">| Ausente</ion-label>
+      </ion-item>
+      <ion-item >
+        <ion-label >Ivan Rossi </ion-label> <ion-label color="danger">| Ausente</ion-label>
+      </ion-item>
+      <ion-item >
+        <ion-label >Stefan Müller </ion-label> <ion-label color="danger">| Ausente</ion-label>
+      </ion-item>
+
+    </ion-list>
+    
+    -->
+
+    <ion-list>
+      <ion-item *ngFor="let alumno of alumnos">
+        <ion-label>{{alumno.nombre}} {{alumno.apellido}} </ion-label> <ion-label>| {{alumno.asistencia}}</ion-label>
+      </ion-item>
+    </ion-list>
+
+    
+    <br>
+
+    <!-- GENERACIÓN DE CODIGO QR -->
+    <ion-card class="ion-text-center">
+      <ion-card-content>
+        <qrcode 
+        [qrdata]="'https://i.pinimg.com/originals/70/a5/52/70a552e8e955049c8587b2d7606cd6a6.gif'" 
+        [width]="256" 
+        [errorCorrectionLevel]="'M'">
+      </qrcode>
+      </ion-card-content>
+      <ion-item >
+        <ion-label class="ion-text-center">CODIGO QR ASISTENCIA </ion-label> 
+      </ion-item>
+    </ion-card>
+    
+    <br>
+
+    <ion-button (click)="presentAlert()" color="success">
+      Registrar clase
+    </ion-button>
+
+    <br>
+
+
+
+    
+  </div>
+
+  
+ 
+
+
+  <ion-footer color>
+    <ion-toolbar color="primary">
+      <ion-title>Developed by Benja</ion-title>
+    </ion-toolbar>
+  </ion-footer>
+
+</div>
+</ion-content> 
+
+
+
+
+
+
+    <!--LISTA ALUMNOS-->
+
+    
+    <!-- 
+      
+    <ion-list > 
+
+      <ion-item >
+        <ion-label >Benjamin Perez </ion-label> <ion-label color="success">| Presente</ion-label>
+      </ion-item>
+      <ion-item >
+        <ion-label >Luis Rojas </ion-label> <ion-label color="danger">| Ausente</ion-label>
+      </ion-item>
+      <ion-item >
+        <ion-label >Alvaro Sevilla </ion-label> <ion-label color="danger">| Ausente</ion-label>
+      </ion-item>
+      <ion-item >
+        <ion-label >Ivan Rossi </ion-label> <ion-label color="danger">| Ausente</ion-label>
+      </ion-item>
+      <ion-item >
+        <ion-label >Stefan Müller </ion-label> <ion-label color="danger">| Ausente</ion-label>
+      </ion-item>
+
+    </ion-list>
+    
+    -->
