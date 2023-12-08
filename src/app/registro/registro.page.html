@@ -21,45 +21,52 @@
 
       <br>
       
-
-      <div id="container">
-        
-        <!-- Registro de usuarios -->
-        <form [formGroup]="formReg" (ngSubmit)="onSubmit()">
-          <ion-item>
-              <label class="form-label">Email</label>
-              <input type="text" class="form-control" formControlName="email">
-          </ion-item>
-          <br>
-          <ion-item>
-              <label class="form-label">Password</label>
-              <input type="password" class="form-control" formControlName="password">
-          </ion-item>
-          <input type="submit" value="Enviar">
-        </form>
-
-        <br>
-
-
-        <!-- Boton de registro -->
-        <ion-button (click)="enviarInformacion()">
-          Registrarse
-        </ion-button>    
-
+      <div id="titulo">
+        <h2>Ingresa tus nuevos datos </h2>
+      </div>
       
 
+      <div id="container">
+
+        
+        
+
+        <!-- Registro de usuarios firebase -->
+        <div class="formulario">
+
+          <form [formGroup]="formReg" (ngSubmit)="onSubmit()">
+            <ion-item color="primary">
+              <ion-label position="floating">Usuario (mail)</ion-label>
+              <ion-input formControlName="email" type="text"></ion-input>
+            </ion-item>
+            <ion-item color="primary">
+              <ion-label position="floating">Contraseña</ion-label>
+              <ion-input formControlName="password" type="password"></ion-input>
+            </ion-item>
+
+            <br>
+    
+            <ion-button type="submit" color="primary" >Registrarse</ion-button>
+    
+          </form>
+    
+        </div>  
 
         <hr>
 
-        <!-- Te redirige a la pagina Registro-->
+        <!-- Si ya tienes cuenta te redirige a la pagina Registro-->
         <p>¿Ya tienes una cuenta? <a [routerLink]="['/login']">Inicia sesion</a></p>
 
 
         <br>
 
+        <!-- Mensaje en caso de datos erroneos en el formulario -->
         <h2 color="red">{{mensaje}}</h2>
+
       </div>
     </div>
   </ion-content>
+
+
 
 

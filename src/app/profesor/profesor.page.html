@@ -9,7 +9,7 @@
       <ion-back-button>Volver</ion-back-button>
     </ion-buttons>
     <ion-title>
-      SkeletonAPP
+      ClassCheckQR
     </ion-title>
     <ion-progress-bar type="indeterminate" color="success"></ion-progress-bar>
   </ion-toolbar>
@@ -20,7 +20,7 @@
 <div class="fondo-cuenta">
   <div id="titulo">
     <h1><b>Bienvenido profesor!</b></h1>
-    <h4>Usuario :  {{user.usuario}}</h4>
+    <h4>Usuario :  {{auth.currentUser?.email}}</h4>
   </div>
 
 
@@ -43,13 +43,13 @@
 
     <ion-list > 
 
-      <ion-item >
+      <ion-item color="primary">
         <ion-label > 005-D</ion-label>     <ion-button color="success" [routerLink]="['/curso']"> Asistencia</ion-button>
       </ion-item>
-      <ion-item >
+      <ion-item color="primary">
         <ion-label >006-D</ion-label>      <ion-button color="success" [routerLink]="['/curso']"> Asistencia</ion-button>
       </ion-item>
-      <ion-item >
+      <ion-item color="primary">
         <ion-label >007-D </ion-label>     <ion-button color="success" [routerLink]="['/curso']"> Asistencia</ion-button>
       </ion-item>
 
@@ -68,13 +68,12 @@
  
 
 
-  <ion-footer color>
-    <ion-toolbar color="primary">
-      <ion-title>Developed by Benja</ion-title>
-    </ion-toolbar>
-  </ion-footer>
+
 
 </div>
-</ion-content> 
+</ion-content>
+
+
+
 
 

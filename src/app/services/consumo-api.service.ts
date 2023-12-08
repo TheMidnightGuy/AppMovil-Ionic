@@ -7,6 +7,7 @@ import { Firestore, getFirestore, setDoc, doc, getDoc, addDoc, collection, colle
 import  Alumno  from '../interfaces/alumno';
 
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -64,5 +65,16 @@ export class ConsumoAPIService {
   }
 
 
-  //añadir alumnos a la base de datos - *Pendiente* (Pagina: Alumno)
+  //añadir alumnos a la base de datos - (Pagina: Alumno)
+  addAlumno(alumno: Alumno) {
+    const alumnoRef = collection(this.firestore, 'alumnos');
+    return addDoc(alumnoRef, alumno);
+  }
+
+  
+
+
+
+
 }
+

@@ -1,0 +1,23 @@
+<ion-header [translucent]="true" >
+  <ion-toolbar color="primary">
+    <ion-title> Escaneo QR </ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button>Volver</ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content
+  [fullscreen]="true"
+  [style.--background]="scanActive?'#00000000':'#ffffff'"
+>
+
+  <ion-row class="scan-button" [hidden]="!scanActive">
+    <ion-col class="ion-no-padding">
+      <ion-button expand="full" (click)="startScanner()" [hidden]="scanActive">Escanear QR</ion-button>
+      <ion-button expand="full" (click)="stopScanner()">Detener escaneo</ion-button>
+    </ion-col>
+    
+  </ion-row>
+  <div class="scan-box" [hidden]="!scanActive"></div>
+</ion-content>

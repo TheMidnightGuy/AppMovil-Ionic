@@ -36,34 +36,37 @@ export class LoginPage implements OnInit {
   public mensaje = ""
 
 
-  user = {
-    usuario: "",
-    contrasena: ""
+  ngOnInit(): void {
   }
 
-  alumno = {
-    usuario: "alumno",
-    contrasena: "alumno"
-  }
+  //Validar login - profesor/alumno (Firebase) 
+  onSubmit() {
+    this.userService.login(this.formLogin.value)
+      .then(response => {
+        const email = response.user.email;
+        if (email !== "profesor@gmail.com") {
+          this.router.navigate(['alumno']);
+          console.log("Bienvenido Alumno!")
+        } else if (email === "profesor@gmail.com") {
+          this.router.navigate(['profesor']);
+          console.log("Bienvenido Profesor!")
+        }
+      })
+      .catch(error => {
+        console.log(error);
+        this.mensaje = "Datos no validos, intente denuevo";
+        console.log("El correo electrónico no está asociado a ningún rol: 'Profesor o 'Alumno'");
+      });
+  }  
 
-  profesor = {
-    usuario: "profesor",
-    contrasena: "profesor"
-  }
-
-  username: string = '';
 
 
 
+}
 
-  mostrarConsola() {
-    console.log(this.user);
-    if (this.user.usuario != "" && this.user.contrasena != "") {
-      this.mensaje = "Usuario Conectado";
-    } else {
-      this.mensaje = "Usuario y contraseña deben tener algun valor"
-    }
-  }
+  /*
+  --- INICIO VALIDACION LOCAL --- 
+            *comentada*
 
   //Validar login - profesor/alumno (local)
   validarLogin() {
@@ -86,13 +89,27 @@ export class LoginPage implements OnInit {
       console.error("Usuario no reconocido");
     }
   }
-  
-  
 
-  ngOnInit(): void {
+
+  mostrarConsola() {
+    console.log(this.user);
+    if (this.user.usuario != "" && this.user.contrasena != "") {
+      this.mensaje = "Usuario Conectado";
+    } else {
+      this.mensaje = "Usuario y contraseña deben tener algun valor"
+    }
   }
 
+  --- FIN DE VALIDACION LOCAL ---
 
+  */
+  
+  
+
+
+
+  //Metodo para boton de formulario #1 firebase - solo validaba y manda a una pagina
+  /*
   onSubmit() {
     this.userService.login(this.formLogin.value)
     .then(response => {
@@ -104,13 +121,11 @@ export class LoginPage implements OnInit {
       this.mensaje = "Datos no validos, intente denuevo";
     });
   }
+  */
 
 
 
 
 
 
-  
 
-
-}

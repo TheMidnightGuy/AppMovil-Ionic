@@ -24,26 +24,36 @@
       <div id="container" >
         
 
-        <form [formGroup]="formLogin" (ngSubmit)="onSubmit()">
-          <ion-item>
-              <label class="form-label">Email</label>
-              <input type="text" class="form-control" formControlName="email">
-          </ion-item>
-          <br>
-          <ion-item>
-              <label class="form-label">Password</label>
-              <input type="password" class="form-control" formControlName="password">
-          </ion-item>
-          <input type="submit" value="Enviar">
-        </form>
+        <!-- LogIn firebase -->
 
+        <div class="formulario">
+
+          <form [formGroup]="formLogin" (ngSubmit)="onSubmit()">
+            <ion-item color="primary">
+              <ion-label position="floating">Usuario (mail)</ion-label>
+              <ion-input formControlName="email" type="text"></ion-input>
+            </ion-item>
+            <ion-item color="primary">
+              <ion-label position="floating">Contraseña</ion-label>
+              <ion-input formControlName="password" type="password"></ion-input>
+            </ion-item>
+
+            <br>
+    
+            <ion-button type="submit" color="primary" >Iniciar sesion </ion-button>
+    
+          </form>
+    
+        </div>
         
         <br>
 
-        <!-- Boton de log in -->
+        <!-- Boton de log in - LOCAL *BORRAR* 
         <ion-button (click)="validarLogin()" >
           Ingresar
         </ion-button>
+        -->
+
 
         <hr>
         
@@ -62,6 +72,8 @@
 
     
   </ion-content> 
+
+
 
 
 

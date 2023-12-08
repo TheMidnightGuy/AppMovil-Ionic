@@ -47,10 +47,16 @@ const routes: Routes = [
     //*GUARD TEMPORAL, QUITAR* canActivate: [AuthGuard]  // Aplica el guard y me redirige a Login
   },
   {
+    path: 'scan-qr',
+    loadChildren: () => import('./scan-qr/scan-qr.module').then( m => m.ScanQRPageModule),
+    ...canActivate(()=> redirectUnauthorizedTo(['/login'])) 
+  },
+  {
     path: '**',
     loadChildren: () => import('./error-page/error-page.module').then( m => m.ErrorPagePageModule),
     //En caso de url inexistente me redirige a page404
-  },
+  }
+
 
   
 

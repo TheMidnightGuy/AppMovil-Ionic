@@ -5,11 +5,8 @@
     <ion-buttons slot="end">
       <ion-button fill="solid" (click)="onClick()" color="danger">Cerrar sesion ❌</ion-button>
     </ion-buttons>
-    <ion-buttons slot="start">
-      <ion-back-button>Volver</ion-back-button>
-    </ion-buttons>
     <ion-title>
-      SkeletonAPP
+      ClassCheckQR
     </ion-title>
     <ion-progress-bar type="indeterminate" color="success"></ion-progress-bar>
   </ion-toolbar>
@@ -20,7 +17,8 @@
 <div class="fondo-cuenta">
   <div id="titulo">
     <h1><b>Bienvenido alumno!</b></h1>
-    <h4>Usuario :  {{user.usuario}}</h4>
+    <h4>Usuario :  {{auth.currentUser?.email}}</h4>
+    
   </div>
 
 
@@ -35,43 +33,66 @@
     
     <h2>Informacion adicional</h2>
 
-    <ion-item color="primary">
-      <ion-input color="primary" label="Nombre" type="text"  fill="solid" placeholder="Ingrese su nombre" value=""></ion-input>
-    </ion-item>
 
-    <ion-item color="primary">
-      <ion-input color="primary" label="  RUT" type="text"  fill="solid" placeholder="Ingrese su rut" value=""></ion-input>
-    </ion-item>
+    <!-- formulario nuevo -->
+
+    <div class="formulario">
+
+      <form [formGroup]="formAlumno" (ngSubmit)="onSubmit()">
+        <ion-item color="primary">
+          <ion-label position="floating">Nombre</ion-label>
+          <ion-input formControlName="nombre" type="text"></ion-input>
+        </ion-item>
+        <ion-item color="primary">
+          <ion-label position="floating">Apellido</ion-label>
+          <ion-input formControlName="apellido" type="text"></ion-input>
+        </ion-item>
+        <ion-item color="primary">
+          <ion-select formControlName="asistencia" aria-label="Fruit" interface="popover" placeholder="Asistencia">
+            <ion-select-option value="Presente">Presente</ion-select-option>
+            <ion-select-option value="Ausente">Ausente</ion-select-option>
+          </ion-select>
+        </ion-item>
+        <br>
+
+        <!-- Registro de asistencia manual -->
+        <ion-button type="submit" color="primary" (click)="presentAlert()">
+          Registrar Asistencia
+        </ion-button>
+
+        <hr>
+        
+        <!-- Boton para escanear codigo QR-->
+        <ion-button   color="tertiary" [routerLink]="['/scan-qr']"> 
+          Registrar asistencia con Codigo QR
+        </ion-button>      
+        
+
+        <!--Boton prueba qr-
+        <ion-button expand="full" (click)="startScanner()" [hidden]="scanActive">
+          SCAN
+        </ion-button>
+        <ion-row class="scan-button" [hidden]="!scanActive">
+          <ion-col class="ion-no-padding">
+            <ion-button expand="full" (click)="stopScanner()">Stop</ion-button>
+          </ion-col>
+        </ion-row>
+        <div class="scan-box" [hidden]="!scanActive"></div>
 
 
-    <ion-list color="primary">
-      <ion-item color="primary">
-        <ion-select aria-label="Fruit" interface="popover" placeholder="Seccion" >
-          <ion-select-option value="section1" >005-D</ion-select-option>
-          <ion-select-option value="section2">006-D</ion-select-option>
-          <ion-select-option value="section3">007-D</ion-select-option>
-        </ion-select>
-      </ion-item>
-    </ion-list>
+
+      -->
 
 
-    <ion-item color="primary">
-      <ion-input color="primary" label="Fecha de clase" type="date"  fill="solid" placeholder="Ingrese fecha" ></ion-input>
-    </ion-item>
 
-    <br>
+      </form>
 
-    <ion-button (click)="presentAlert()">
-      Registrar asistencia
-    </ion-button>
+    </div>
 
     <hr>
 
 
-    <!-- Boton para escanear codigo-->
-    <ion-button  (click)="askUser()" color="tertiary"> 
-      Registrar asistencia con Codigo QR
-    </ion-button>
+
     
     
 
@@ -81,12 +102,10 @@
  
 
 
-  <ion-footer color>
-    <ion-toolbar color="primary">
-      <ion-title>Developed by Benja</ion-title>
-    </ion-toolbar>
-  </ion-footer>
+
 
 </div>
 </ion-content> 
+
+
 

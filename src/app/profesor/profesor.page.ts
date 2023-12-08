@@ -5,6 +5,7 @@ import { AnimationController } from '@ionic/angular';
 import { AlertController, AlertButton } from '@ionic/angular';
 
 import { ConsumoAPIService } from '../services/consumo-api.service';
+import { Auth } from '@angular/fire/auth';
 
 
 @Component({
@@ -17,7 +18,7 @@ export class ProfesorPage implements OnInit {
   private animation!:Animation;
 
 
-  constructor(private router:Router, private activatedRouter: ActivatedRoute,private animationCtrl:AnimationController, private alertController: AlertController, private userService: ConsumoAPIService  ) {}
+  constructor(private router:Router, private activatedRouter: ActivatedRoute,private animationCtrl:AnimationController, private alertController: AlertController, private userService: ConsumoAPIService, public auth: Auth  ) {}
 
   
   
@@ -42,25 +43,21 @@ export class ProfesorPage implements OnInit {
 
   public mensaje = ""
 
-  public user = {
-    usuario: "",
-    password: ""
-  }
+
 
   //lista de alumnos presentes
   alumnosPresentes: any[];
 
+  //correo de usuario actual
+  correo: string | null | undefined;
 
   ngOnInit() {
-    this.activatedRouter.queryParams.subscribe(() => {
-      let state = this.router.getCurrentNavigation()?.extras.state;
-      if (state) {
-        this.user.usuario = state['user'].usuario;
-        this.user.password = state['user'].password;
-        console.log(this.user);
-      }
-    })
-  }
+    //obtener usuario actual
+    this.correo = this.auth.currentUser?.email;
+    }
+
+
+  
 
     //Cerrar sesion mediante boton
     onClick() {

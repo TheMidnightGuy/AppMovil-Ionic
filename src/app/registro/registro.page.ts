@@ -28,38 +28,21 @@ export class RegistroPage implements OnInit {
 
   public mensaje = ""
 
-  user = {
-    usuario: "",
-    contrasena: ""
-  }
-
-  enviarInformacion() {
-    if (this.user.usuario != "") {
-      let navigationExtras: NavigationExtras = {
-        state: { user: this.user }
-      }
-      this.router.navigate(['/login'], navigationExtras);
-    } else {
-      this.mensaje = "Datos no validos, intente denuevo";
-    }
-  }
-
-  confirm() {
-    this.mensaje="Registro Exitoso"
-    this.modal.dismiss(this.user.usuario, 'confirm');
-  }
-
 
   ngOnInit(): void {
   }
 
+  //Metodo para boton de formulario
   onSubmit() {
     this.userService.registro(this.formReg.value)
      .then(response => {
       console.log(response);
       this.router.navigate(['/login']);
+      console.log("Registro de usuario exitoso")
      })
      .catch(error => console.log(error));
+     this.mensaje = "Datos no validos, intente denuevo";
+     console.log("Datos no validos, intente denuevo")
   }
 
 }
