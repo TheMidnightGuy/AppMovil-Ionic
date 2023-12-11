@@ -7,7 +7,7 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
-import {HttpClientModule} from '@angular/common/http'
+import {HttpClient, HttpClientModule} from '@angular/common/http'
 import {ConsumoAPIService} from '../app/services/consumo-api.service';
 
 
@@ -44,7 +44,7 @@ import { getStorage, provideStorage } from '@angular/fire/storage';
       provideFirestore(() => getFirestore()),
       provideStorage(() => getStorage())
   ],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy,  }, ConsumoAPIService],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy,  }, ConsumoAPIService, HttpClientModule],
   bootstrap: [AppComponent],
   schemas: [NO_ERRORS_SCHEMA]
 })

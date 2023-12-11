@@ -67,18 +67,7 @@ export class CursoPage implements OnInit {
     })
   }
 
-  /*
-  ngOnInit() {
-    this.activatedRouter.queryParams.subscribe(() => {
-      let state = this.router.getCurrentNavigation()?.extras.state;
-      if (state) {
-        this.user.usuario = state['user'].usuario;
-        this.user.password = state['user'].password;
-        console.log(this.user);
-      }
-    })
-  }
-  */
+
 
 
   //Cerrar sesion mediante boton

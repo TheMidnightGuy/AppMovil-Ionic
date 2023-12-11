@@ -1,15 +1,27 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { LoginPage } from './login.page';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { IonicModule } from '@ionic/angular';
+import { RouterTestingModule } from '@angular/router/testing';
+import { Router } from '@angular/router';
 
-describe('LoginPage', () => {
+import { LoginPage } from './login.page';
+import { By } from '@angular/platform-browser';
+
+describe('(#3 LogIn)', () => {
   let component: LoginPage;
   let fixture: ComponentFixture<LoginPage>;
 
-  beforeEach(async(() => {
+  beforeEach(async() => {
+    await TestBed.configureTestingModule({
+      declarations: [LoginPage],
+      imports: [IonicModule.forRoot(),
+                HttpClientTestingModule]
+    }).compileComponents();
+
     fixture = TestBed.createComponent(LoginPage);
     component = fixture.componentInstance;
     fixture.detectChanges();
-  }));
+  });
 
   it('should create', () => {
     expect(component).toBeTruthy();
