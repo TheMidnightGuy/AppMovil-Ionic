@@ -22,5 +22,6 @@ Esta aplicacion fue creada con el proposito de poder facilitar el registro de as
 
 + Flujo de la app
   
-![Uploading ClassCheckQR - Flujo.png…]()
-  
+
+  ![ClassCheckQR - Flujo](https://github.com/TheMidnightGuy/AppMovil-Ionic/assets/98906622/15f988ec-d68f-4b06-9621-21308a5c5ffb)
+
